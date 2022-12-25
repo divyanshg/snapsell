@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { UserProvider } from "context/User";
 
 import {
   useFonts,
@@ -29,10 +30,12 @@ export default function App() {
   }
 
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <Root />
-      </NavigationContainer>
-    </SafeAreaProvider>
+    <UserProvider>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <Root />
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </UserProvider>
   );
 }
