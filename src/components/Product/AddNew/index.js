@@ -6,6 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 const AddNew = ({ text, to }) => {
   const navigation = useNavigation();
   const goto = () => {
+    console.log(to);
     navigation.navigate(to);
   };
   return (

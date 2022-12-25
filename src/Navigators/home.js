@@ -11,6 +11,7 @@ import tw from "lib/tailwind";
 
 import { Feather, Foundation } from "@expo/vector-icons";
 import TopTab from "./Products/TopTab";
+import ProductStack from "./Products";
 
 const Home = () => {
   return (
@@ -44,7 +45,7 @@ const Home = () => {
       />
       <Tab.Screen
         name="Products"
-        component={TopTab}
+        component={ProductStack}
         options={{
           tabBarLabel: "Products",
           tabBarIcon: ({ color, size }) => (

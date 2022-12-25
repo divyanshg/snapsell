@@ -3,14 +3,10 @@ import React from "react";
 import { Text, View } from "react-native";
 import { AntDesign, SimpleLineIcons } from "@expo/vector-icons";
 import AddNew from "components/Product/AddNew";
-const CategoriesScreen = () => {
-  const openAddCatagories = () => {
-    console.log("Add Catagories");
-  };
 
+const CategoriesScreen = () => {
   return (
     <View style={tw`flex items-center justify-center mt-5`}>
-       
       <View>
         <AntDesign
           style={tw`text-center mt-70 text-gray-700`}
@@ -27,7 +23,7 @@ const CategoriesScreen = () => {
           beautiful categories
         </Text>
       </View>
-      <AddNew text={"Add new Catagory"} onPress={openAddCatagories} />
+      <AddNew to={"AddProduct"} text={"Add New Product"} />
     </View>
   );
 };
