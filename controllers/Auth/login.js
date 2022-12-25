@@ -26,5 +26,7 @@ module.exports = async (req, res) => {
     userId: existingUser._id,
     bussiness: existingUser.bussiness,
   });
-  res.send({ token });
+  res
+    .cookie("token", `Bearer ${token}`)
+    .send({ msg: "Login successful", token });
 };

@@ -5,6 +5,7 @@ const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const cookieParser = require("cookie-parser");
 
 const { connectMongoose } = require("./config/database");
 
@@ -25,6 +26,7 @@ app.use(morgan("combined"));
 // Parse request bodies as JSON
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // Define your routes here
 app.use("/auth", require("./routes/Auth"));

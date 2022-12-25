@@ -1,7 +1,7 @@
 const { verifyAccessToken } = require("../utils/token");
 
 module.exports = async (req, res, next) => {
-  const authHeader = req.headers["authorization"];
+  const authHeader = req.headers["authorization"] || req.cookies.token;
   const token = authHeader && authHeader.split(" ")[1];
 
   if (!token) {
