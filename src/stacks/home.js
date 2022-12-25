@@ -3,8 +3,11 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 const Tab = createBottomTabNavigator();
 
 import HomeScreen from "screens/Home";
+import ProductScreen from "screens/Products";
+
 
 import { Feather, Foundation } from "@expo/vector-icons";
+import TopTab from "./Products/TopTab";
 
 const Home = () => {
   return (
@@ -21,7 +24,7 @@ const Home = () => {
       />
       <Tab.Screen
         name="Products"
-        component={HomeScreen}
+        component={TopTab}
         options={{
           tabBarLabel: "Products",
           tabBarIcon: ({ color, size }) => (
