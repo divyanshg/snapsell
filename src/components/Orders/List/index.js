@@ -7,8 +7,10 @@ import {
 } from "react-native";
 import React from "react";
 import tw from "lib/tailwind";
+import { useNavigation } from "@react-navigation/native";
 
 import { AntDesign } from "@expo/vector-icons";
+import StatusIndicator from "../StatusIndicator";
 
 let orders = [
   {
@@ -52,53 +54,56 @@ let orders = [
   },
 ];
 
-const Order = ({ order }) => (
-  <TouchableHighlight
-    onPress={() => {}}
-    underlayColor="#DDDDDD"
-    style={tw`bg-white rounded-lg border border-stone-200 mb-4`}
-  >
-    <View style={tw`p-4`}>
-      <View style={tw`flex flex-row justify-between items-center`}>
-        <View style={tw`flex flex-row items-center`}>
-          <Text style={tw`font-semibold text-lg`}>Order #{order.id}</Text>
-          <View style={tw`mx-2 bg-green-600 rounded px-1`}>
-            <Text style={tw`text-white text-sm font-semibold`}>NEW</Text>
+const Order = ({ order }) => {
+  const { navigate } = useNavigation();
+  return (
+    <TouchableHighlight
+      onPress={() => navigate("OrderDetails", { id: order.id })}
+      underlayColor="#DDDDDD"
+      style={tw`bg-white rounded-lg border border-stone-200 mb-4`}
+    >
+      <View style={tw`p-4`}>
+        <View style={tw`flex flex-row justify-between items-center`}>
+          <View style={tw`flex flex-row items-center`}>
+            <Text style={tw`font-semibold text-lg`}>Order #{order.id}</Text>
+            <View style={tw`mx-2 bg-green-600 rounded px-1`}>
+              <Text style={tw`text-white text-sm font-semibold`}>NEW</Text>
+            </View>
+          </View>
+          <Text style={tw`font-semibold text-stone-400`}>Today, 12:04 AM</Text>
+        </View>
+        <View style={tw`flex flex-row justify-between items-center my-2`}>
+          <View style={tw`flex flex-col`}>
+            <Text style={tw`font-semibold text-stone-400`}>
+              {order.products.length === 1
+                ? "1 ITEM"
+                : `${order.products.length} ITEMS`}
+            </Text>
+            <Text style={tw`font-semibold text-brand-primary`}>
+              ₹{order.total}
+            </Text>
+          </View>
+          <View style={tw`bg-brand-secondary-variant px-2 py-1 rounded`}>
+            <Text style={tw`font-semibold text-brand-secondary`}>
+              {order.paymentMethod.toUpperCase()}
+            </Text>
           </View>
         </View>
-        <Text style={tw`font-semibold text-stone-400`}>Today, 12:04 AM</Text>
-      </View>
-      <View style={tw`flex flex-row justify-between items-center my-2`}>
-        <View style={tw`flex flex-col`}>
-          <Text style={tw`font-semibold text-stone-400`}>
-            {order.products.length === 1
-              ? "1 ITEM"
-              : `${order.products.length} ITEMS`}
-          </Text>
-          <Text style={tw`font-semibold text-brand-primary`}>
-            ₹{order.total}
-          </Text>
-        </View>
-        <View style={tw`bg-brand-secondary-variant px-2 py-1 rounded`}>
-          <Text style={tw`font-semibold text-brand-secondary`}>
-            {order.paymentMethod.toUpperCase()}
-          </Text>
+        <View
+          style={tw`border-t border-stone-200 pt-2 flex flex-row items-center justify-between`}
+        >
+          <View style={tw`flex flex-row items-center`}>
+            <StatusIndicator status={order.status} />
+            <Text style={tw`font-bold text-stone-400`}>
+              {order.status.toUpperCase()}
+            </Text>
+          </View>
+          <AntDesign name="right" size={20} style={tw`text-stone-400`} />
         </View>
       </View>
-      <View
-        style={tw`border-t border-stone-200 pt-2 flex flex-row items-center justify-between`}
-      >
-        <View style={tw`flex flex-row items-center`}>
-          <View style={tw`rounded-lg h-3 w-3 bg-brand-on-primary mr-1`} />
-          <Text style={tw`font-bold text-stone-400`}>
-            {order.status.toUpperCase()}
-          </Text>
-        </View>
-        <AntDesign name="right" size={20} style={tw`text-stone-400`} />
-      </View>
-    </View>
-  </TouchableHighlight>
-);
+    </TouchableHighlight>
+  );
+};
 
 const OrdersList = () => {
   return (
