@@ -2,7 +2,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 
 import ScreenHeader from "components/ScreenHeader";
 import ProductScreen from "screens/Products";
-import CategoriesScreen from "screens/Categories";
+import CategoriesScreen from "screens/Products/Categories";
 
 const Tab = createMaterialTopTabNavigator();
 
