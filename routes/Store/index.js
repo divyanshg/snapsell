@@ -19,7 +19,7 @@ const verifyApiKey = require("../../middlewares/verifyApiKey");
 
 router
   .route("/products")
-  .get(getAllProducts)
+  .get(isAuthenticated, getAllProducts)
   .post(isAuthenticated, createProduct);
 
 router

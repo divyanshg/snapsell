@@ -7,6 +7,10 @@ const {
 const verifyApiKey = require("../../middlewares/verifyApiKey");
 const router = Router();
 
+router.post("/init", (req, res) => {
+  res.status(200).json({ message: "API is working" });
+});
+
 router.get("/products", verifyApiKey, getAllProducts);
 router.get("/products/:id", verifyApiKey, getProductById);
 

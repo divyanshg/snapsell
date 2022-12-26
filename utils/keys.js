@@ -6,7 +6,8 @@ module.exports = {
     return {
       id: crypto.randomBytes(32).toString("hex"),
       secret: bcrypt.hashSync(
-        `${business}-${crypto.randomBytes(32).toString("hex")}`
+        `${business}-${crypto.randomBytes(32).toString("hex")}`,
+        10
       ),
     };
   },

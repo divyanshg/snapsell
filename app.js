@@ -30,9 +30,10 @@ app.use(cookieParser());
 
 // Define your routes here
 app.use("/auth", require("./routes/Auth"));
+app.use("/api", verifyApiKey, require("./routes/Api"));
 app.use("/api/store", require("./routes/Store"));
 
-app.use("/api", verifyApiKey, require("./routes/Api"));
+app.use("/private", require("./routes/Private"));
 
 // Error handler
 app.use(errorHandler);
