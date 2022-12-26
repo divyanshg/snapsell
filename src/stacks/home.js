@@ -3,6 +3,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 const Tab = createBottomTabNavigator();
 
 import HomeScreen from "screens/Home";
+import Manage from "screens/Manage";
+
 
 import { Feather, Foundation } from "@expo/vector-icons";
 
@@ -41,7 +43,7 @@ const Home = () => {
       />
       <Tab.Screen
         name="Manage"
-        component={HomeScreen}
+        component={Manage}
         options={{
           tabBarLabel: "Manage",
           tabBarIcon: ({ color, size }) => (
