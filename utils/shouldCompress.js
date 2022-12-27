@@ -1,3 +1,4 @@
+const compression = require("compression");
 const shouldCompress = (req, res) => {
   if (req.headers["x-no-compression"]) {
     // Will not compress responses, if this header is present
