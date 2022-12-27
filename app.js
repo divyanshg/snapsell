@@ -6,11 +6,13 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
+const compression = require("compression");
 
 const { connectMongoose } = require("./config/database");
 
 const verifyApiKey = require("./middlewares/verifyApiKey");
 const errorHandler = require("./middlewares/errorHandler");
+const shouldCompress = require("./utils/shouldCompress");
 
 connectMongoose();
 
@@ -27,6 +29,12 @@ app.use(morgan("combined"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(
+  compression({
+    filter: shouldCompress,
+    threshold: 0,
+  })
+);
 
 // Define your routes here
 app.use("/auth", require("./routes/Auth"));
