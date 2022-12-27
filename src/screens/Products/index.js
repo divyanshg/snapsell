@@ -3,16 +3,15 @@ import React from "react";
 import { Text, View } from "react-native";
 import { Entypo, SimpleLineIcons } from "@expo/vector-icons";
 import AddNew from "components/Product/AddNew";
-
+import ProductCard from "components/Product/CatalogueCard/ProductCard";
 const ProductScreen = () => {
   return (
-    <View style={tw`flex items-center justify-center mt-5  `}>
-      <Text style={tw`text-2xl font-brandSemibold w-full text-center`}>
-        Products
-      </Text>
+    <View style={tw`flex items-center justify-center mt-2  `}>
+      <ProductCard />
+     
       <View>
         <SimpleLineIcons
-          style={tw`text-center mt-70 text-gray-700`}
+          style={tw`text-center mt-30 text-gray-700`}
           name="social-dropbox"
           size={90}
           color="black"
@@ -26,7 +25,7 @@ const ProductScreen = () => {
           customers
         </Text>
       </View>
-      <AddNew to={'AddProduct'} text={"Add New Product"} />
+      <AddNew to={"AddProduct"} text={"Add New Product"} />
     </View>
   );
 };

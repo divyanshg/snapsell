@@ -1,4 +1,5 @@
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { View } from "react-native";
 
 import ScreenHeader from "components/ScreenHeader";
 import ProductScreen from "screens/Products";
@@ -9,7 +10,10 @@ const Tab = createMaterialTopTabNavigator();
 const TopTab = () => {
   return (
     <>
-      <ScreenHeader title={"Products"} />
+      <View>
+        <ScreenHeader title="Catalogue" />
+      </View>
+
       <Tab.Navigator>
         <Tab.Screen
           name="ProductStack"
