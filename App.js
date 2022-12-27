@@ -12,7 +12,7 @@ import {
   Oswald_700Bold,
 } from "@expo-google-fonts/oswald";
 
-import Root from "stacks/root";
+import Root from "Navigators/root";
 
 export default function App() {
   let [fontsLoaded] = useFonts({

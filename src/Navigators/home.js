@@ -4,14 +4,14 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 const Tab = createBottomTabNavigator();
 
 import HomeScreen from "screens/Home";
-import ProductScreen from "screens/Products";
 import OrdersScreen from "screens/Orders";
+
 
 import tw from "lib/tailwind";
 
 import { Feather, Foundation } from "@expo/vector-icons";
-import TopTab from "./Products/TopTab";
 import ProductStack from "./Products";
+import ManageStack from "./Manage";
 
 const Home = () => {
   return (
@@ -87,7 +87,7 @@ const Home = () => {
       />
       <Tab.Screen
         name="Manage"
-        component={HomeScreen}
+        component={ManageStack}
         options={{
           tabBarLabel: "Manage",
           tabBarIcon: ({ color, size }) => (
