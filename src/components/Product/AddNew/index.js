@@ -6,13 +6,12 @@ import { useNavigation } from "@react-navigation/native";
 const AddNew = ({ text, to }) => {
   const navigation = useNavigation();
   const goto = () => {
-    console.log(to);
     navigation.navigate(to);
   };
   return (
     <TouchableOpacity
       onPress={goto}
-      style={tw`absolute -bottom-54  items-center p-4 bg-red-400 rounded-xl `}
+      style={tw`absolute -bottom-30  items-center p-4 bg-red-400 rounded-xl `}
     >
       <View>
         <Text style={tw`text-xl px-20`}>{text}</Text>

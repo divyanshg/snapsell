@@ -24,6 +24,7 @@ module.exports = function (api) {
             layout: "./src/layouts",
             constants: "./src/constants",
             utils: "./src/utils",
+            Navigator: "./src/Navigators",
           },
         },
       ],

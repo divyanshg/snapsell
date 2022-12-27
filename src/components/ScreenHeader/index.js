@@ -14,17 +14,17 @@ const ScreenHeader = ({ title }) => {
   };
   return (
     <View
-      style={tw`w-full py-4 pt-10 px-4 bg-brand-secondary border-b border-gray-200 flex flex-row items-center`}
+      style={tw`w-full py-4 pt-10 px-4 bg-brand-secondary border-b border-gray-200 flex flex-row`}
     >
       <TouchableOpacity onPress={goBack}>
-        <Ionicons name="arrow-back" style={tw`text-white`} size={30} />
+        <Ionicons name="arrow-back" style={tw`text-white `} size={30} />
       </TouchableOpacity>
       <Text
         style={tw`text-2xl font-brandSemibold text-white text-center flex-1`}
       >
         {title}
       </Text>
-    </View >
+    </View>
   );
 };
 

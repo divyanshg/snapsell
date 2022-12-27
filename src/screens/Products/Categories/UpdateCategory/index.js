@@ -4,7 +4,7 @@ import { View, Text, TextInput, TouchableOpacity } from "react-native";
 
 import { MaterialIcons, AntDesign } from "@expo/vector-icons";
 
-const AddCategory = () => {
+const UpdateCategory = () => {
   const navigation = useNavigation();
   const back = () => {
     navigation.goBack();
@@ -23,7 +23,7 @@ const AddCategory = () => {
           <Text
             style={tw`text-black w-1.6/2 text-center  text-xl  font-semibold`}
           >
-            Add Category
+            Update Category
           </Text>
         </View>
         <TouchableOpacity>
@@ -35,9 +35,9 @@ const AddCategory = () => {
             />
           </View>
         </TouchableOpacity>
-        <Text style={tw`text-gray-400`}>Add Category Images</Text>
+        <Text style={tw`text-gray-400`}>Update Category Images</Text>
         <TextInput
-          placeholder="Category Name "
+          placeholder="Update Category Name "
           style={tw`w-11/12 mt-2 h-12 px-2 py-2 bg-gray-200 border-gray-300 rounded-lg`}
         />
       </View>
@@ -45,4 +45,4 @@ const AddCategory = () => {
   );
 };
 
-export default AddCategory;
+export default UpdateCategory;
